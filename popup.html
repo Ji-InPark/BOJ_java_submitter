@@ -1,11 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <link href="assets/css/popup.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>빠른 제출</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            width: 240px;
+            background: #f9f9f9;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .label-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<div id="hide-option-container">
-    <h1>BOJ Java Submitter</h1>
+<div class="container">
+    <h2>빠른 제출 스위치</h2>
+    <label class="switch">
+        <input id="toggleSwitch" type="checkbox">
+        <span class="slider"></span>
+    </label>
+    <div class="label-text" id="statusText">로딩 중...</div>
 </div>
+
+<script src="popup.js"></script>
 </body>
 </html>

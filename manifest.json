@@ -13,7 +13,9 @@
     }
   },
   "permissions": [
-    "scripting"
+    "scripting",
+    "declarativeNetRequestWithHostAccess",
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
@@ -27,9 +29,22 @@
         "removePackageAndRenameClass.js"
       ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.acmicpc.net/problem/*"
+      ],
+      "js": [
+        "changeSubmitButtonText.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "host_permissions": [
-    "https://www.acmicpc.net/submit/*"
-  ]
+    "https://www.acmicpc.net/*",
+    "https://cdnjs.cloudflare.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": []
+  }
 }
