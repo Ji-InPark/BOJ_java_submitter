@@ -1,6 +1,6 @@
 {
   "name": "BOJ_java_submitter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An extension for submit java code to BOJ",
   "manifest_version": 3,
   "action": {
@@ -32,7 +32,7 @@
     },
     {
       "matches": [
-        "https://www.acmicpc.net/problem/*"
+        "https://www.acmicpc.net/*"
       ],
       "js": [
         "changeSubmitButtonText.js"

@@ -19,13 +19,15 @@ async function toggleBlocking() {
     });
   } else {
     await chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [1],
       addRules: [{
-        "id": 1,
-        "priority": 1,
-        "action": {"type": "block"},
-        "condition": {
-          "urlFilter": "codemirror.min.js",
-          "resourceTypes": ["script"]
+        id: 1,
+        priority: 1,
+        action: {type: "block"},
+        condition: {
+          urlFilter: "codemirror.min.js",
+          resourceTypes: ["script"],
+          initiatorDomains: ["https://www.acmicpc.net/submit/*"]
         }
       }]
     });
